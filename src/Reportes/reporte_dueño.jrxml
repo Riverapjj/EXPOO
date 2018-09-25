@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporte_dueño" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f731ad16-a6cf-46e0-8248-a75d2d6f2c9b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select * from viviendas where Estado = 'true' print 'Activo']]>
+	</queryString>
+	<field name="idVivienda" class="java.lang.Integer"/>
+	<field name="Estado" class="java.lang.String"/>
+	<field name="IdResidente" class="java.lang.Integer"/>
+	<field name="IdDueno" class="java.lang.Integer"/>
+	<field name="Direccion" class="java.lang.String"/>
+	<field name="Cuota" class="java.math.BigDecimal"/>
+	<field name="Dueno" class="java.lang.String"/>
+	<field name="Residente" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="96" splitType="Stretch">
+			<staticText>
+				<reportElement x="119" y="-2" width="353" height="60" uuid="23c16f2d-2047-4131-85ba-427dd401e4a3"/>
+				<textElement>
+					<font size="42"/>
+				</textElement>
+				<text><![CDATA[Estado Vivienda]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="472" y="58" width="100" height="20" uuid="30aaa23a-29c8-456d-b9f0-49ecd382b7da"/>
+				<text><![CDATA[True: activa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="472" y="76" width="100" height="20" uuid="5ac1abdb-0649-4650-8ac4-86a2ca6772db"/>
+				<text><![CDATA[False: inactiva]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="23" y="76" width="137" height="20" uuid="a54c2e57-a7eb-40f8-a96f-dbede5e1ad49"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="8" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="8" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="67" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="23" y="0" width="114" height="20" forecolor="#FFFFFF" backcolor="#660000" uuid="19ce5be1-e8f4-4796-837d-9f8c34c02007"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Numero de casa:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="23" y="37" width="100" height="20" uuid="d0439579-0bba-4570-9829-e6292b93254c"/>
+				<textFieldExpression><![CDATA[$F{idVivienda}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="168" y="0" width="199" height="20" forecolor="#FFFFFF" backcolor="#660000" uuid="0c63a902-bca8-412b-8f1b-69712214f429"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Direccion:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="168" y="37" width="100" height="20" uuid="66e438fa-912e-4f23-bc88-7e41e30394e5"/>
+				<textFieldExpression><![CDATA[$F{Direccion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="422" y="0" width="112" height="20" forecolor="#FFFFFF" backcolor="#660000" uuid="5b73cad2-b4fa-4e54-9998-b5766ab05028"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Estado:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="422" y="37" width="100" height="20" uuid="4fa4f43f-1762-4a3a-836b-2f881845ab22"/>
+				<textFieldExpression><![CDATA[$F{Estado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="14" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="434" y="20" width="100" height="20" uuid="c5601ef6-72f6-4b24-afb7-65f2e4a427b9"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

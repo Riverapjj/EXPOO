@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Visitas" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="65a2a036-4fae-4bbe-a5f6-0681b089ab60">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="4"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="FechaInicio" class="java.lang.String"/>
+	<parameter name="FechaFin" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     *
+FROM
+     "Visitas"
+WHERE
+     FechaVisita BETWEEN $P{FechaInicio} and $P{FechaFin}]]>
+	</queryString>
+	<field name="IdVisita" class="java.lang.Integer"/>
+	<field name="NomVisitante" class="java.lang.String"/>
+	<field name="DUIVisitante" class="java.lang.String"/>
+	<field name="Descripcion" class="java.lang.String"/>
+	<field name="HoraVisita" class="java.lang.String"/>
+	<field name="FechaVisita" class="java.lang.String"/>
+	<field name="IdResidente" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="117" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="771" y="-211" width="572" height="34" forecolor="#FFFFFF" backcolor="#6E0F1B" uuid="1cab0bdd-7197-4ffd-b06c-f08136f687e3"/>
+				<textElement textAlignment="Center">
+					<font fontName="Bodoni MT Black" size="18"/>
+				</textElement>
+				<text><![CDATA[Visitas]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="114" y="97" width="100" height="20" uuid="86e11555-c534-49cf-befe-873e2d4db06f"/>
+				<textElement>
+					<font fontName="Modern No. 20" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="97" width="114" height="20" uuid="2cf9f341-4ccd-4406-bb85-0376786d67a8"/>
+				<textElement>
+					<font fontName="Modern No. 20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de elaboracion:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="447" y="97" width="114" height="20" uuid="69b132ae-a81b-4ffa-8e91-27d7f58cf4f9"/>
+				<textElement>
+					<font fontName="Modern No. 20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Usuario:Pamela Trejo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="46" width="572" height="33" forecolor="#FFFFFF" backcolor="#4B7B7D" uuid="6e915290-cc0d-42a9-b481-615902391544"/>
+				<textElement textAlignment="Center">
+					<font fontName="Modern No. 20" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Visitas]]></text>
+			</staticText>
+			<elementGroup/>
+			<image>
+				<reportElement x="0" y="3" width="241" height="43" uuid="c503cbef-2509-4c5d-b3fa-74d65e4b1886"/>
+				<imageExpression><![CDATA["C:\\Users\\panay\\Desktop\\PAES\\EXPOOO\\Images\\logo.PNG"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="4" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="82" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="60" width="572" height="1" uuid="8e404ef5-799f-46f2-a8b0-82afac2ac4a4"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="249" height="17" forecolor="#FFFFFF" backcolor="#4B7B7D" uuid="dc6ff530-0487-459d-9c08-f810358bfb91"/>
+				<textElement textAlignment="Left">
+					<font fontName="Modern No. 20" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Visitante]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="263" y="0" width="103" height="17" forecolor="#FFFFFF" backcolor="#4B7B7D" uuid="37010639-e6c4-4021-beac-42fb0d4b1c99"/>
+				<textElement textAlignment="Left">
+					<font fontName="Modern No. 20" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DUI Visitante]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="372" y="0" width="77" height="17" forecolor="#FFFFFF" backcolor="#4B7B7D" uuid="3035dfd4-6fba-4588-8416-19b9f4c89b06"/>
+				<textElement textAlignment="Left">
+					<font fontName="Modern No. 20" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hora Visita]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="466" y="0" width="95" height="17" forecolor="#FFFFFF" backcolor="#4B7B7D" uuid="4bc58bad-c9c2-4684-a6e1-1f597cf20aa5"/>
+				<textElement textAlignment="Left">
+					<font fontName="Modern No. 20" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha creacion]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="27" width="100" height="20" uuid="017c5dbe-ab1b-46af-8435-41ef88bf0863"/>
+				<textElement>
+					<font fontName="Modern No. 20" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NomVisitante}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="263" y="27" width="100" height="20" uuid="c9b13e53-d2fe-485a-9775-69c6e4828f75"/>
+				<textElement>
+					<font fontName="Modern No. 20" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DUIVisitante}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="372" y="27" width="77" height="20" uuid="137c88eb-fbf8-4ad1-9e14-dd4a8e62eeb0"/>
+				<textElement>
+					<font fontName="Modern No. 20" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{HoraVisita}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="466" y="27" width="100" height="20" uuid="f729c975-596a-44f9-ab05-fd5117cf52ab"/>
+				<textElement>
+					<font fontName="Modern No. 20" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FechaVisita}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="17" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="466" y="34" width="123" height="20" uuid="b6651af9-0804-4370-b75d-d709445b8989"/>
+				<textElement>
+					<font fontName="Modern No. 20" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="8" splitType="Stretch"/>
+	</summary>
+</jasperReport>

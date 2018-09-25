@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ResiMembresia" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bea06de9-5ea7-4c11-80ed-6052cd849e34">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select r.IdResidente, r.Nombre, r.IdMembresia, m.TipoMembresia, m.Detalle from Residentes r, Membresia m where r.IdMembresia = m.IdMembresia order by m.TipoMembresia]]>
+	</queryString>
+	<field name="IdResidente" class="java.lang.Integer"/>
+	<field name="Nombre" class="java.lang.String"/>
+	<field name="IdMembresia" class="java.lang.Integer"/>
+	<field name="TipoMembresia" class="java.lang.String"/>
+	<field name="Detalle" class="java.lang.String"/>
+	<group name="Membresia">
+		<groupExpression><![CDATA[$F{TipoMembresia}]]></groupExpression>
+		<groupHeader>
+			<band height="20"/>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="ResidentexMembresia">
+		<groupExpression><![CDATA[$F{TipoMembresia}]]></groupExpression>
+		<groupHeader>
+			<band height="50">
+				<staticText>
+					<reportElement mode="Opaque" x="157" y="33" width="186" height="17" forecolor="#FFFFFF" backcolor="#4B7B7D" uuid="65f3e374-078c-41b1-b66a-1471dffaf18f"/>
+					<textElement textAlignment="Left">
+						<font fontName="Modern No. 20" size="13" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Detalle.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="10" y="0" width="99" height="17" forecolor="#FFFFFF" backcolor="#4B7B7D" uuid="ae890b32-59e0-489f-acd9-15bfe8e27150"/>
+					<textElement textAlignment="Left">
+						<font fontName="Modern No. 20" size="13" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Membresia.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="10" y="33" width="147" height="17" forecolor="#FFFFFF" backcolor="#4B7B7D" uuid="bb17458f-039b-4561-aace-7fad6a63726c"/>
+					<textElement textAlignment="Left">
+						<font fontName="Modern No. 20" size="13" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Nombre de Residente.]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="109" y="0" width="100" height="20" uuid="f0cb0586-028e-43fc-9b9c-cbb609c7e464"/>
+					<textElement>
+						<paragraph leftIndent="5"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{TipoMembresia}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="4"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="124" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="124" y="104" width="100" height="20" uuid="08dc9a7c-c2ae-4d73-97ce-d5b6c25bb0dc"/>
+				<textElement>
+					<font fontName="Modern No. 20" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="104" width="114" height="20" uuid="1f5820ea-cb46-4315-a382-de0254623b57"/>
+				<textElement>
+					<font fontName="Modern No. 20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de elaboracion:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="43" width="572" height="34" forecolor="#FFFFFF" backcolor="#4B7B7D" uuid="523b5ccb-f042-4614-b7e4-a04ba4cc58ba"/>
+				<textElement textAlignment="Center">
+					<font fontName="Modern No. 20" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Membresia por residente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="441" y="104" width="114" height="20" uuid="c2abad06-9c34-4ab6-afb9-fa89cb076253"/>
+				<textElement>
+					<font fontName="Modern No. 20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Usuario:Pamela Trejo]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="0" width="241" height="43" uuid="a484c08d-a13f-4a7d-adbb-66aa0bc4338b"/>
+				<imageExpression><![CDATA["C:\\Users\\panay\\Desktop\\PAES\\EXPOOO\\Images\\logo.PNG"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="10" y="0" width="147" height="20" uuid="4462ebc0-d3b8-4219-bf73-7daea035a3f3"/>
+				<textElement>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="157" y="0" width="186" height="20" uuid="6e038bef-f37a-44af-a24b-c5fb7ff84870"/>
+				<textElement>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Detalle}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="182" splitType="Stretch">
+			<xyBarChart>
+				<chart>
+					<reportElement x="153" y="0" width="288" height="167" uuid="74d79a09-0db6-49d9-a487-b76e499db61f"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<xyDataset>
+					<xySeries>
+						<seriesExpression><![CDATA[$F{TipoMembresia}]]></seriesExpression>
+						<xValueExpression><![CDATA[$F{IdMembresia}]]></xValueExpression>
+						<yValueExpression><![CDATA[$F{IdResidente}]]></yValueExpression>
+					</xySeries>
+				</xyDataset>
+				<barPlot>
+					<plot/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat/>
+					</valueAxisFormat>
+				</barPlot>
+			</xyBarChart>
+		</band>
+	</summary>
+</jasperReport>

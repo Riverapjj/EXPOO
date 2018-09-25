@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Factura" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9cf2562e-d59d-4d4e-a00b-e13a1ff8bd12">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select Cuota,Dueno,Residente,Descripcion,Monto
+from Viviendas, Recibos]]>
+	</queryString>
+	<field name="Cuota" class="java.math.BigDecimal"/>
+	<field name="Dueno" class="java.lang.String"/>
+	<field name="Residente" class="java.lang.String"/>
+	<field name="Descripcion" class="java.lang.String"/>
+	<field name="Monto" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="371" splitType="Stretch">
+			<textField>
+				<reportElement x="93" y="161" width="100" height="20" uuid="02eb21fb-989b-42de-9ddd-e6302bbb0efb"/>
+				<textElement>
+					<font fontName="Modern No. 20" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Cuota}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="93" y="214" width="100" height="20" uuid="1337de7e-7925-4594-b6b3-782cafb6f8f0"/>
+				<textElement>
+					<font fontName="Modern No. 20" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Dueno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="93" y="256" width="100" height="20" uuid="33add936-0ea4-4d24-bf33-79312661590c"/>
+				<textElement>
+					<font fontName="Modern No. 20" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Residente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="364" y="144" width="171" height="20" uuid="22d92c10-cf36-4e51-98a8-d1779c3cd8f1"/>
+				<textElement>
+					<font fontName="Modern No. 20" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Descripcion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="314" y="144" width="50" height="17" forecolor="#FFFFFF" backcolor="#4B7B7D" uuid="25eb3b01-be3c-4da6-add2-93f93653faa5"/>
+				<textElement textAlignment="Left">
+					<font fontName="Modern No. 20" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="103" y="309" width="100" height="20" uuid="a9edb6c9-62fe-4b72-93c8-6c819822eb2d"/>
+				<textElement>
+					<font fontName="Modern No. 20" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Monto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="4" y="161" width="56" height="17" forecolor="#FFFFFF" backcolor="#4B7B7D" uuid="a157a71e-a70f-4b2d-9552-55fcb6946757"/>
+				<textElement textAlignment="Left">
+					<font fontName="Modern No. 20" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cuota:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="4" y="214" width="52" height="17" forecolor="#FFFFFF" backcolor="#4B7B7D" uuid="2e9a263a-1455-42ab-be3e-250a5a7a6f97"/>
+				<textElement textAlignment="Left">
+					<font fontName="Modern No. 20" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dueño:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="4" y="259" width="71" height="17" forecolor="#FFFFFF" backcolor="#4B7B7D" uuid="c75a98a3-041c-4a68-9f57-d4483702b7b7"/>
+				<textElement textAlignment="Left">
+					<font fontName="Modern No. 20" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Residente:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="-2" y="309" width="95" height="17" forecolor="#FFFFFF" backcolor="#4B7B7D" uuid="90ee812a-7ef5-4f13-8dff-a79632e171ac"/>
+				<textElement textAlignment="Left">
+					<font fontName="Modern No. 20" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Monto a pagar]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="120" y="95" width="100" height="20" uuid="c8526388-cbf1-4594-b2a2-cf265fe613da"/>
+				<textElement>
+					<font fontName="Modern No. 20" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="43" width="572" height="33" forecolor="#FFFFFF" backcolor="#4B7B7D" uuid="0df909ce-06e4-42b1-8372-699a2d895076"/>
+				<textElement textAlignment="Center">
+					<font fontName="Modern No. 20" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Factura]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="445" y="95" width="114" height="20" uuid="95b8b3e4-d2e7-4b70-a363-e66fd542f83f"/>
+				<textElement>
+					<font fontName="Modern No. 20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Usuario:Pamela Trejo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="95" width="116" height="20" uuid="d6c6272c-da36-459f-ada5-7341035c0e6c"/>
+				<textElement>
+					<font fontName="Modern No. 20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de elaboracion:]]></text>
+			</staticText>
+			<image>
+				<reportElement x="-2" y="0" width="241" height="43" uuid="cafa61cd-cf6a-42f9-87be-c69b0d9350d7"/>
+				<imageExpression><![CDATA["C:\\Users\\panay\\Desktop\\PAES\\EXPOOO\\Images\\logo.PNG"]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
